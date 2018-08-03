@@ -17,11 +17,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';*/
     BrowserModule,
     IonicModule.forRoot(MyApp)
   ],
-  bootstrap: [IonicApp],
-  providers: [
-    StatusBar,
-    SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
-  ]
+  bootstrap: [IonicApp]  
 })
 export class AppModule {}

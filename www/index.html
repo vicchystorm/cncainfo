@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <meta http-equiv="Content-Security-Policy" content="connect-src http://cnca.miralsa.net/wp-json/wp/v2/posts http://cnca.miralsa.net/wp-json/wp/v2/posts/ http://cnca.miralsa.net/apps/fil.json http://cnca.miralsa.net/apps/menu.php https://fonts.googleapis.com/css https://use.fontawesome.com https://ssl.gstatic.com 'unsafe-eval';  media-src *; style-src 'unsafe-inline' * ">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+	
+		<meta name="mobile-web-app-capable" content="yes">
+		<meta name="HandheldFriendly" content="True">
+		
+		<link rel="stylesheet" href="css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/materialize.min.css">
+		<link rel="stylesheet" href="css/fakeLoader.css">
+		<link rel="stylesheet" href="css/slick.css">
+		<link rel="stylesheet" href="css/slick-theme.css">
+		<link rel="stylesheet" href="css/owl.carousel.css">
+		<link rel="stylesheet" href="css/owl.theme.css">
+		<link rel="stylesheet" href="css/owl.transitions.css">
+		<link rel="stylesheet" href="css/style.css">
+		
+		<link rel="stylesheet" href="css/all.css">
+		
+		
+        <title>CNCA INFOS</title>
+
+    </head>
+    <body  class="home">
+ 
+
+	<!-- loading -->
+	<div id="loading"></div>
+	<!-- end loading -->
+
+	<!-- navbar -->
+	<div class="navbar">
+		<div class="container">
+			<div class="panel-control-left menu-panel-control-left">
+				<!--<a href="contact.html"><i class="fa fa-envelope-o"></i></a>-->
+				<ul>
+				   <li><a href="index.html"><i class="fa fa-home"></i><br>Accueil</a></li>
+				   <li><a href="javascript:loadQuran();"><i class="fas fa-book-open"></i><br>Coran</a></li>
+				   <li><a href="#"><i class="fas fa-wifi"></i><br>Radio</a></li>
+				   <li><a href="#"><i class="far fa-calendar-alt"></i><br>Calendrier</a></li>
+				   <li><a href="#"><i class="fa fa-compass"></i><br>Qibla</a></li>
+				   <li><a href="#" data-activates="slide-out-left" class="sidenav-control-left"><i class="fa fa-ellipsis-h"></i><br>Autres</a></li>
+				</ul>
+			</div>
+			<div class="site-title">
+				<!--<a href="index.html" class="logo"><h1>Xtra</h1></a>-->
+			</div>
+			<div class="panel-control-right">
+				<a href="#" ><i class="fa fa-bars"></i></a>
+			</div>
+		</div>
+	</div>
+	<!-- end navbar -->
+
+	
+	<!-- panel control left -->
+	<div class="panel-control-left">
+		<ul id="slide-out-left" class="side-nav collapsible"  data-collapsible="accordion">
+			<li class="author">
+				<img src="img/author.png" alt="">
+				<div class="desc">
+					<h5>Mario Doe</h5>
+					<span>UI/UX Designer</span>
+				</div>
+			</li>
+			<li>
+				<a href="index.html"><i class="fa fa-home"></i>Accueil</a>
+			</li>
+ 
+			<li>
+				<a href="#portfolio.html"><i class="far fa-newspaper"></i>Actualités</a>
+			</li>
+			<li>
+				<a href="#blog.html"><i class="fas fa-book-open"></i>Coran</a>
+			</li>
+			<li>
+				<a href="#faq.html"><i class="fas fa-graduation-cap"></i>Enseignements</a>
+			</li>
+			<li>
+				<a href="#testimonial.html"><i class="fas fa-users"></i>Communauté</a>
+			</li>
+			<li>
+				<a href="#404.html"><i class="far fa-calendar-alt"></i>Evènements</a>
+			</li>
+			<li>
+				<a href="#contact.html"><i class="fas fa-briefcase"></i>Business</a>
+			</li>
+			<li>
+				<a href="#login.html"><i class="fab fa-readme"></i>Versets les plus lus</a>
+			</li>
+			<li>
+				<a href="#register.html"><i class="far fa-play-circle"></i>Medias</a>
+			</li>
+		</ul>
+	</div>
+	<!-- end panel control left -->
+		
+
+	<!-- mainContainer -->
+	<div id="mainContainer" class="services abox" style="margin-top: 20px;">
+		<div id="mloaders"></div>
+			 
+		<div class="container" id="mainc" style="margin-bottom:60px;">
+			<div class="app-title" style="display: none">
+				<h4>Services</h4>
+			</div>
+			<div class="row">
+				<div class="col s6">
+					<div class="entry" onclick="loadNews();">
+						<img src="images/news.png" alt="actualités">
+						<h5>Actualités</h5>
+					</div>
+				</div>
+				<div class="col s6">
+					<div class="entry" onclick="loadQuran();">
+						<img src="images/coran.png" alt="Coran">
+						<h5>Coran</h5>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col s6">
+					<div class="entry" onclick="loadEns();">
+						<img src="images/learn-icon.png" alt="Enseignements">
+						<h5>Enseignements</h5>
+					</div>
+				</div>
+				<div class="col s6">
+					<div class="entry">
+						<img src="images/communaute.png" alt="Communautes">
+						<h5>Communauté</h5>
+					</div>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col s6">
+					<div class="entry">
+						<img src="images/event.png" alt="Evenements">
+						<h5>Evènements</h5>
+					</div>
+				</div>
+				<div class="col s6">
+					<div class="entry">
+						<img src="images/business.png" alt="Business">
+						<h5>Business</h5>
+					</div>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col s6">
+					<div class="entry">
+						<img src="images/verset.png" alt="Versets">
+						<h5>Versets les plus lus</h5>
+					</div>
+				</div>
+				<div class="col s6">
+					<div class="entry">
+						<img src="images/media.png" alt="Medias">
+						<h5>Medias</h5>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<div id="loadmore"></div>
+	</div>
+	<!-- end services -->
+  
+	
+	<!-- footer  
+	<footer>
+		<div class="container">
+			<h6>Find & follow us</h6>
+			<ul class="icon-social">
+				<li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
+				<li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
+				<li class="google"><a href="#"><i class="fa fa-google"></i></a></li>
+				<li class="instagram"><a href="#"><i class="fa fa-instagram"></i></a></li>
+				<li class="rss"><a href="#"><i class="fa fa-rss"></i></a></li>
+			</ul>
+			<div class="tel-fax-mail">
+				<ul>
+					<li><span>Tel:</span> 900000o02</li>
+					<li><span>Fax:</span> 0400000o98</li>
+					<li><span>Email:</span> info@youremail.com</li>
+				</ul>
+			</div>
+			<div class="ft-bottom">
+				<span>Copyright © All Rights Reserved </span>
+			</div>
+		</div>
+	</footer>
+	  end footer -->
+     
+
+     
+ 
+		
+		
+		
+		
+ 		
+		
+		
+		
+		
+		
+		
+		
+		
+<div id="main" style="display: none">
+
+	<!-- LEFT SIDEBAR img-src 'self' data: content:; -->
+	<div id="slide-out-left" class="side-nav">		
+		 
+		 
+		<!-- App/Site Menu -->
+		<ul class="collapsible" data-collapsible="accordion">
+			<li>
+				<div class="active current-item"><a href="index.html"><i class="fa fa-home"></i> Accueil </a></div>				 
+			</li>
+			<li>
+				<div class="collapsible-header"><i class="fa fa-file-o"></i> Actualit&eacute;s <span class="angle-right fa fa-angle-right"></span></div>
+				<div class="collapsible-body">
+					<ul>
+						<li><a href="content-single.html">Single</a></li>
+						<li><a href="content-video.html">Video</a></li>
+						<li><a href="content-gallery.html">Gallery</a></li>
+						<li><a href="comment.html">Comment</a></li>
+					</ul>
+				</div>
+			</li>
+			<li>
+				<div class="collapsible-header"><i class="fa fa-moon-o"></i> Vie Musulmane <span class="angle-right fa fa-angle-right"></span></div>
+				<div class="collapsible-body">
+					<ul>
+						<li><a href="#">Prières</a></li>
+						<li><a href="#">Orientation Prière</a></li>
+						<li><a href="#">Coran</a></li>
+						<li><a href="#">Calendrier de Fêtes</a></li>
+						<li><a href="#">Lieux de Prière</a></li>
+						<li><a href="#">Noms</a></li>
+					</ul>
+				</div>
+			</li>
+			<li>
+				<a href="#"><i class="fa fa-bullhorn"></i> Annonces</a>
+			</li>
+			<li>
+				<a href="#"><i class="fa fa-briefcase"></i> Business</a>
+			</li>
+			<li>
+				<a href="#"><i class="fa fa-terminal"></i> Blog</a>
+			</li>
+			<li>
+				<a href="#"><i class="fa fa-envelope-o"></i> Contact</a>
+			</li>
+		</ul>
+		<!-- End Site/App Menu -->
+
+	</div>
+	<!-- END LEFT SIDEBAR -->
+ 
+
+	<!-- MAIN PAGE -->
+	<div id="page">
+		
+		<!-- FIXED Top Navbar -->
+		<div class="top-navbar">
+			<div class="top-navbar-left">
+				<a href="#" id="menu-left" data-activates="slide-out-left">
+					<i class="fa fa-bars"></i>
+				</a>
+			</div>
+			<div class="top-navbar-right">
+				<a href="#" id="menu-right" data-activates="slide-out-right">
+					<i class="fa fa-th-large"></i>
+				</a>
+			</div>
+			<div class="site-title">
+				<img src="img/logo.png" alt="Logo">
+			</div>
+		</div>
+		<!-- End FIXED Top Navbar -->
+	
+		
+		<!-- Featured Slider -->
+		<div style="padding: 15px" id="mloaders" align="center"><img src="images/loading.gif" alt="" width="75"></div>
+		<div class="featured-slider animated fadeInRight" id="featured-slider">
+			 
+
+		</div>
+		<!-- End Featured Slider -->
+
+		<ul class="rapidlinks">
+			<li><a href="#"><i class="fa fa-clock-o"></i><span>Pri&egrave;res</span></a></li>
+			<li><a href="#"><i class="fa fa-compass"></i><span>Orientation</span></a></li>
+			<li><a href="#"><i class="fa fa-book"></i><span><span>Coran</span></a></li>
+			
+			<li><a href="#"><i class="fa fa-calendar"></i><span>F&ecirc;tes</span></a></li>
+			<li><a href="#"><i class="fa fa-map-pin"></i><span>Lieux de Pri&eacute;re</span></a></li>
+			<li><a href="#"><i class="fa fa-star"></i><span>Noms</span></a></li>
+		</ul>
+		
+		<div class="clear"></div>
+		<div class="content-container animated fadeInUp">
+
+		<!-- Hot Issue Widget -->
+		<div class="hot-issue-box">
+			<h3>FIL INFO</h3>
+			<div style="padding: 15px" id="hloaders" align="center"><img src="images/loading.gif" alt="" width="75"></div>
+			<div id="ctn">
+				<!--<ul>
+					<li><a href="#"># US Election 2016</a></li>
+					<li><a href="#"># Belgium Bombing</a></li>
+					<li><a href="#"># Tornado Storm</a></li>
+					<li><a href="#"># Pakistan Bombing</a></li>
+				</ul>-->
+			</div>
+		</div>                                               
+		<!-- End Hot Issue Widget -->
+		</div>	
+		<div class="clear"></div>	
+		
+		<!-- Main Content -->
+		<div class="content-container animated fadeInUp">
+
+			<!-- Latest Widget -->
+			<div class="widget-box">
+				<h3 class="widget-title"><!-- Title Latest Widget -->
+					<span>Articles R&eacute;cents</span>
+					<a href="#" class="index">
+						<i class="fa fa-list-ul"></i>
+					</a>
+				</h3><!-- End Title Latest Widget -->
+				
+				<div id="mloaders2">
+					<div style="padding: 15px" id="mloaders4" align="center"><img src="images/loading.gif" alt="" width="75"></div>
+				</div>    
+
+				<div class="clear"></div><!-- Clearing Float for Latest Widget -->
+
+			</div>
+			<!-- End Latest Widget -->
+
+			
+		 
+
+
+			<!-- Video Slider Widget -->
+			<div class="widget-box">
+
+				<h3 class="widget-title">
+					<span>Video</span>
+					<a href="#" class="index">
+						<i class="fa fa-list-ul"></i>
+					</a>
+				</h3>
+
+				
+			</div>
+			<!-- End Video Slider Widget -->
+
+		</div>
+		<!-- End Main Content -->
+
+		<!-- FOOTER -->
+		<div class="footer">
+			<div class="social-footer">
+				<a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+				<a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+				<a href="#" class="gplus"><i class="fa fa-google-plus"></i></a>
+			</div>
+			<div class="navigation">
+				<a href="#">Qui sommes-nous ?</a>
+				<a href="#">Contacts</a>
+				<a href="#">Term & Condition</a>
+			</div>
+			<div class="copyright">
+				&copy; 2018 CNCA. Tous Droits Réservés. Designed by AFRICREA
+			</div>
+		</div>
+		<!-- End FOOTER -->
+
+		<!-- Back to top Link -->
+		<div id="to-top" class="main-bg"><i class="fa fa-long-arrow-up"></i></div>
+
+	</div>
+	<!-- END MAIN PAGE -->
+
+</div><!-- #main -->
+ 
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<!-- script -->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/materialize.min.js"></script>
+		<script src="js/fakeLoader.min.js"></script>
+		<script src="js/loading.js"></script>
+		<script src="js/slick.min.js"></script>
+		<script src="js/owl.carousel.min.js"></script>
+		
+		
+        <script type="text/javascript" src="cordova.js"></script>
+		<script type="text/javascript" src="js/custom.js"></script>        
+		<script type="text/javascript" src="js/index.js"></script>
+    </body>
+</html>

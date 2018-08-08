@@ -101,90 +101,113 @@
 	<!-- end panel control left -->
 		
 
-	<!-- mainContainer -->
-	<div id="mainContainer" class="services abox" style="margin-top: 20px;">
-		<div id="mloaders"></div>
-			 
-		<div class="container" id="mainc" style="margin-bottom:60px;">
-			<div class="app-title" style="display: none">
-				<h4>Services</h4>
-			</div>
-			<div class="row">
-				<div class="col s6">
-					<div class="entry" onclick="loadNews();">
-						<img src="images/news.png" alt="actualités">
-						<h5>Actualités</h5>
-					</div>
-				</div>
-				<div class="col s6">
-					<div class="entry" onclick="loadQuran();">
-						<img src="images/coran.png" alt="Coran">
-						<h5>Coran</h5>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col s6">
-					<div class="entry" onclick="loadEns();">
-						<img src="images/learn-icon.png" alt="Enseignements">
-						<h5>Enseignements</h5>
-					</div>
-				</div>
-				<div class="col s6">
-					<div class="entry" onClick="loadCommunaute();">
-						<img src="images/communaute.png" alt="Communautes">
-						<h5>Communauté</h5>
-					</div>
-				</div>
-			</div>
-			
-			<div class="row">
-				<div class="col s6">
-					<div class="entry" onClick="loadEvents()">
-						<img src="images/event.png" alt="Evenements">
-						<h5>Evènements</h5>
-					</div>
-				</div>
-				<div class="col s6">
-					<div class="entry">
-						<img src="images/business.png" alt="Business">
-						<h5>Business</h5>
-					</div>
-				</div>
-			</div>
-			
-			<div class="row">
-				<div class="col s6">
-					<div class="entry" onClick="loadVers()">
-						<img src="images/verset.png" alt="Versets">
-						<h5>Versets les plus lus</h5>
-					</div>
-				</div>
-				<div class="col s6">
-					<div class="entry">
-						<img src="images/media.png" alt="Medias">
-						<h5>Medias</h5>
-					</div>
-				</div>
-			</div>
-
-		</div>
-		<div id="loadmore"></div>
-	</div>
+	 
  
+	<!-- login-->
+	<div id="mainContainer" class="login app-pages app-section" style="margin-top:10px;">
+		<div id="mloaders"></div>
+		
+		<div class="container" id="mainc" style="margin-bottom:60px;">
+			<div class="pages-title">
+				<h3>Qibla<br><span style="font-size: 13px"></span></h3>
+			</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+ <div id="compass">
+    		<div id="ring"></div>
 
+            <div id="center"><span><img src="qibla/img/mapperson.svg"/></span></div>
+
+            <div id="info">
+                <div id="headingNumber"></div>            
+            
+                
+            </div>
+            
+             <div id="qibla">
+                <img src="qibla/img/kabah.svg" alt="Kaaba"/>
+            </div>
+           
+            
+        </div>
+
+       <div id="geoMap"><div id="geoMapInner"></div></div>
+		
+       <button id="getGeo" title="Search"><img src="qibla/img/search.svg" alt="Search" class="svg-search-globe"></button>
+
+        <span id="geoCity">
+                <span id="geoLocality">Active your GPS</span>&nbsp;<span id="geoCountry">please</span>
+        </span>
+
+        <div id="qiblaInfo">
+            <span id="qiblaNumber"></span>  &nbsp;<img src="qibla/img/kabah.svg" alt="Kaaba">&nbsp; <span id="qiblaDistance"></span>
+        </div>
+    
+
+        <div id="search">
+            <input type="search" id="citySearch" name="citySearch"/>
+            <label for="citySearch" id="searchIcon" title="Search"><img src="qibla/img/search.svg"/></label>
+            <button id="hideSearch" title="Cancel"><img src="qibla/img/clear.svg"/></button>
+            <div id="searchGeoloc"><img src="qibla/img/gps.svg"/> ~ <span id="nearCity">Near</span><span id="nearCountry">, </span></div>
+        </div>
+
+        
+        <div id="mapZoomGroup" title="Zoom">
+            <div id="mapIn"></div>
+            <div id="mapOut"></div>
+        </div>
+
+        <div id="mapSat" title="Satellite/Map"><img src="qibla/img/landscape10.svg" alt="Satellite"/></div>
+
+	
+		<br/><br/><br/><br/>
+            <span id="deviceready" class="blink">
+                <span class="event listening">Connecting to Device</span>
+                <span class="event received"><!--Device is Ready--></span>
+         </span>
+
+		<div id="heading"></div>
+		<div id="geo"></div>
+
+
+        <div id="headingAccuracy"></div>
+        
+        <div id="log"></div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		</div>
+	</div>
+	<!-- end login -->
      
  
-		
-		
-		
-		
- 		
-		
-		
-		
-		
-		
+		 
 		
 		
 		
@@ -223,14 +246,32 @@
 		<!-- script -->
 		<script src="js/jquery.min.js"></script>
 		<script src="js/materialize.min.js"></script>
-		<script src="js/fakeLoader.min.js"></script>
-		<script src="js/loading.js"></script>
+		<!--<script src="js/fakeLoader.min.js"></script>
+		<script src="js/loading.js"></script>-->
 		<script src="js/slick.min.js"></script>
-		<script src="js/owl.carousel.min.js"></script>
-		
+		<script src="js/owl.carousel.min.js"></script>		
 		
         <script type="text/javascript" src="cordova.js"></script>
 		<script type="text/javascript" src="js/custom.js"></script>        
-		<script type="text/javascript" src="js/index.js"></script>
+		<!--<script type="text/javascript" src="js/index.js"></script>-->	
+	
+		<!-- For Qibla -->
+	    <link rel="stylesheet" type="text/css" href="qibla/css/index.css" />
+        <link rel="stylesheet" type="text/css" href="qibla/css/search.css" />
+        <link rel="stylesheet" type="text/css" href="qibla/css/animation.css" />
+        <link rel="stylesheet" type="text/css" href="qibla/css/map.css" />
+	
+        <script type="text/javascript" src="qibla/js/search.js"></script>
+        <script type="text/javascript" src="qibla/js/index.js"></script>
+        <script type="text/javascript" src="qibla/js/qibla.js"></script>
+        <script type="text/javascript" src="qibla/js/map.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+        </script>
+	
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCq-FdreXOuK24BaFhJSar276p0q4aqrJs&callback=initializeMap&libraries=places,geometry"></script> 
+	
+	
+	
     </body>
 </html>

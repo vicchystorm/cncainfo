@@ -50,49 +50,12 @@ $(function(){
         	});
  
 		});
-	
-	
-	//Fil d'actu
-	$.ajax({
-			url: "http://cnca.miralsa.net/apps/fil.json",
-			crossDomain: true,
-			type: "GET",
-			beforeSend: function() {
-				$("#hloaders").css("display","block");
-			}
-		})
-		.done(function( result ) {
-			$("#hloaders").css("display","none");
-			var pa="<ul>";
-			var mposts="";
-			var x=0;
-		
-			$.each(result.posts, function(i, field) {   
  
-			pa+='<li><a href="#">';
-			pa+="#"+ field.heure +" - "+ field.note;
-			pa+='</a></li>';
-			
-			x++;
-        	});
-				
-			mposts=pa;
-			$('#ctn').append(mposts); 
-			pa="";
-			$('#ctn').append("</ul>"); 
-			
-		});
-	  
 	
 	
 	*/
 	
-	
-	
-	
-	
-	
-	
+ 	
 	
 	
 	// sidenav control left
@@ -428,7 +391,7 @@ function loadEns(){
 		});
 		
 		if(xx>0 && xx>=4){		
-			$('#loadmore').html('<button class="button shadow big" id="loadmBut" onclick="loadEnsBut()" data-page="'+ nextPageToRetrieve+'" data-per-page="4">Charger Plus</button>'); 	
+			$('#loadmore').html('<button class="button shadow big" id="loadmBut" onclick="loadEnsBut()" data-page="1" data-per-page="4">Charger Plus</button>'); 	
 		}else{
 			$('#loadmore').html('');
 		}
@@ -487,4 +450,243 @@ function loadEnsById(pID){
 /*********
 Fin Enseignements
 *********/
+
+
+
+
+
+/*********
+Event Function
+*********/ 
+function loadEvents(){
+	$.ajax({
+		url: "http://cnca.miralsa.net/apps/event.php",
+		crossDomain: true,
+		type: "GET",
+		beforeSend: function() {
+			$("#mloaders").css("display","block");
+			$("#mainc").html('<div style="padding: 45%" id="mloaders" align="center"><img src="images/loading.gif" alt="" width="75"></div>');
+			$("#loadmore").css("display","none");
+		}
+	})
+	.done(function( field ) {
+		$("#mloaders").css("display","none");
+		$("#loadmore").css("display","block");
+		$("#mainContainer").removeClass();
+		$("#mainContainer").addClass("blog-single app-pages app-section");
+		$('#mainc').html(''); 		
+		
+		var slide='<div class="app-title"><h4>Evènements</h4>  <div style="float:right"></div></div>';
  
+		slide+=field;
+			
+		$('#mainc').append(slide); 			 
+		
+		$('#loadmore').html(''); 	
+
+	});
+}	
+ 
+
+/*$(document).on("click","#tribe-bar-views",function(){
+								
+alert('++++++');								
+//return false;								
+								
+});*/
+
+
+
+/**************
+Verset les plus Functions
+**************/
+function loadVersBut(){
+ 
+  var $this = $("#loadmBut");
+  var $wpURL="http://cnca.miralsa.net/wp-json/wp/v2/versets_les_plus_lus";
+  var nextPageToRetrieve = $this.data('page')+1;
+  var dataPerPage = $this.data('per-page');
+  $wpURL = $wpURL + "per_page="+dataPerPage+"&page="+ nextPageToRetrieve+"&_embed";
+
+  $.ajax({
+        url: $wpURL,
+		crossDomain: true,
+        type: 'GET',
+        beforeSend: function() {
+			$("#loadmore").html('<div style="padding: 5px; margin-bottom:50px" id="mloaders" align="center"><img src="images/loading.gif" alt="" width="75"></div>');
+		}        
+
+   })
+   .done(function( result ) {
+ 		$("#mloaders").css("display","none");
+
+		var pa='';
+		var slide="";
+		var xx=0; var xxx=1;
+	  		
+		$.each(result, function(i, field) {  
+
+			var divContent=field.content.rendered;
+			var contentSpillage = divContent.split(" ");
+			var txs= contentSpillage.slice(0,7);	
+
+			pa+='<div class="entry">';
+			pa+="<h5><b><a href='javascript:loadVersById("+field.id+")'>"+ xxx+" "+ field.title.rendered +"</a></b></h5>";
+			pa+='<div class="user-date">';
+			pa+='<ul><li><a href="javascript:loadVersById('+field.id+')"><i class="fa fa-clock-o"></i> '+ field.date +'</a></li></ul>';
+			pa+='</div>';
+			pa+="<p><a href='javascript:loadEnsById("+field.id+")'>"+striptags(txs)+"...</a></p>";
+			pa+='<button class="button" onclick="loadVersById('+field.id+')">Lire la suite</button>';
+			pa+='</div>';
+			slide=pa;
+
+			$('#mainc').append(slide); 	
+			pa="";
+			xx++; xxx++;
+			
+		});
+	  
+	  	if(xx>0 && xx>=4){		
+			$('#loadmore').html('<button class="button shadow big" id="loadmBut" onclick="loadVersBut()" data-page="'+ nextPageToRetrieve+'" data-per-page="4">Charger Plus</button>'); 	
+		}else{
+			$('#loadmore').html('');
+		}
+
+	});
+	
+}
+function striph(html){
+var tmp = document.createElement("DIV");
+tmp.innerHTML = html;
+return tmp.textContent || tmp.innerText;
+}
+function striptags(content) {
+  var frag = document.createDocumentFragment();
+  var innerEl = document.createElement('div');
+  frag.appendChild(innerEl);
+  innerEl.innerHTML = content;
+  return frag.firstChild.innerText;
+}
+
+function loadVers(){
+ 
+	$.ajax({
+		url: "http://cnca.miralsa.net/wp-json/wp/v2/versets_les_plus_lus?per_page=10",
+		crossDomain: true,
+		type: "GET",
+		beforeSend: function() {
+			$("#mloaders").css("display","block");
+			$("#mainc").html('<div style="padding: 45%" id="mloaders" align="center"><img src="images/loading.gif" alt="" width="75"></div>');
+		}
+	})
+	.done(function( result ) {
+		$("#mloaders").css("display","none");
+		$("#mainContainer").removeClass();
+		$("#mainContainer").addClass("blog app-pages app-section");
+		$('#mainc').html(''); 
+		
+		var pa='<div class="app-title"><h4>Les Versets les plus lus</h4></div>';
+		var slide="";
+		var xx=0; var xxx=1;
+
+		$.each(result, function(i, field) {  
+		
+		var divContent=field.content.rendered;
+		var contentSpillage = divContent.split(" ");
+		var txs= contentSpillage.slice(0,7);	
+
+		pa+='<div class="entry">';
+		pa+="<h5><b><a href='javascript:loadVersById("+field.id+")'>"+ xxx+" "+ field.title.rendered +"</a></b></h5>";
+		pa+='<div class="user-date">';
+		pa+='<ul><li><a href="javascript:loadVersById('+field.id+')"><i class="fa fa-clock-o"></i> '+ field.date +'</a></li></ul>';
+		pa+='</div>';
+		pa+="<p><a href='javascript:loadVersById("+field.id+")'>"+striptags(txs)+"...</a></p>";
+		pa+='<button class="button" onclick="loadVersById('+field.id+')">Lire la suite</button>';
+		pa+='</div>';
+		slide=pa;
+		
+			
+		$('#mainc').append(slide); 	
+		pa="";
+		xx++; xxx++;
+			
+		});
+		
+		if(xx>0 && xx>=4){		
+			$('#loadmore').html('<button class="button shadow big" id="loadmBut" onclick="loadVersBut()" data-page="1" data-per-page="4">Charger Plus</button>'); 	
+		}else{
+			$('#loadmore').html('');
+		}
+	
+
+	});
+
+}
+ 
+function loadVersById(pID){
+	$.ajax({
+		url: "http://cnca.miralsa.net/wp-json/wp/v2/versets_les_plus_lus/"+pID+"?_embed",
+		crossDomain: true,
+		type: "GET",
+		beforeSend: function() {
+			$("#mloaders").css("display","block");
+			$("#mainc").html('<div style="padding: 45%" id="mloaders" align="center"><img src="images/loading.gif" alt="" width="75"></div>');
+			$("#loadmore").css("display","none");
+		}
+	})
+	.done(function( field ) {
+		$("#mloaders").css("display","none");
+		$("#loadmore").css("display","block");
+		$("#mainContainer").removeClass();
+		$("#mainContainer").addClass("blog-single app-pages app-section");
+		$('#mainc').html(''); 
+		
+		
+		var slide="";
+
+		var pa='<div class="app-title"><h4>Les Versets les plus lus</h4>  <div style="float:right"><a href="javascript:loadVers()" class="backbut">&laquo; Retour</a></div></div>';
+		
+		pa+='<div class="entry" style="clear:both">';
+		pa+="<h5><b><a href='javascript:loadVersById("+field.id+")'>"+ field.title.rendered +"</a></b></h5>";
+		pa+='<div class="user-date">';
+		pa+='<ul><li><a href="javascript:loadVersById('+field.id+')"><i class="fa fa-clock-o"></i> '+ field.date +'</a></li></ul>';
+		pa+='</div>';
+		pa+="<p><a href='javascript:loadVersById("+field.id+")'>"+field.content.rendered+"...</a></p>";
+		pa+='<div class="share"><ul><li><h6>Partager via :</h6></li><li><a href="#"><i class="fa fa-facebook-square"></i></a></li><li><a href="#"><i class="fa fa-twitter-square"></i></a></li><li><a href="#"><i class="fa fa-google-plus-square"></i></a></li><li><a href="#"><i class="fa fa-instagram"></i></a></li></ul></div>';	
+		pa+='<br><br></div>';
+		slide=pa;
+		
+			
+		$('#mainc').append(slide); 	
+		pa="";
+		 
+		
+		$('#loadmore').html(''); 	
+
+	});
+}	
+
+/*********
+Fin Verset les plus 
+*********/
+
+
+
+
+/*********
+Communaute Functions
+*********/
+function loadCommunaute(){
+	var isConnected = window.localStorage.getItem('isConnected');
+
+	if(!isConnected) { 
+		window.location.href="login.html?p=communaute";
+		window.localStorage.setItem('isConnected', 'false');
+	 		 
+	}else{
+		window.location.href="communaute.html";
+		window.localStorage.setItem('isConnected', 'true');
+	}
+	
+	 
+}
